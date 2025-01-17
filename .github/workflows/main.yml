@@ -1,13 +1,7 @@
-name: 为 ARM32 交叉编译 Apache Answer
+name: 为 ARM32 交叉编译 MariaDB
 
 on:
   workflow_dispatch:  # 用户发起构建请求时触发
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -45,14 +39,13 @@ jobs:
 
     - name: Build
       run: |
-        cd server
         make generate
         make ui
         make build
 
     - name: Compress build artifacts
       run: |
-        tar -czf Answer-arm32.tar.gz server
+        tar -czf Answer-arm32.tar.gz .
 
     - name: Create GitHub Release
       id: create_release
