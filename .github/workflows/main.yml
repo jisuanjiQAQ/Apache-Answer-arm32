@@ -1,4 +1,4 @@
-name: 为 ARM32 交叉编译 MariaDB
+name: 为 ARM32 交叉编译 Answer
 
 on:
   workflow_dispatch:  # 用户发起构建请求时触发
@@ -20,10 +20,9 @@ jobs:
       run: |
         sudo apt-get install -y cmake libssl-dev libncurses5-dev bison libaio-dev libboost-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev
 
-    - name: Download MariaDB source code
+    - name: Download source code
       run: |
         git clone https://github.com/apache/answer.git
-        cd server
         git checkout release/1.4.2
 
     - name: Set up cross-compilation environment
