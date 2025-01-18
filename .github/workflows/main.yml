@@ -64,11 +64,11 @@ jobs:
         make generate
         make ui
         make build
+        pwd
 
     - name: Compress build artifacts
       run: |
-        cd ..
-        tar -czf Answer-arm32.tar.gz answer-1.4.1
+       tar -czf Answer-arm32.tar.gz answer-1.4.1
 
     - name: Create GitHub Release
       id: create_release
