@@ -37,6 +37,7 @@ jobs:
 
     - name: Install pnpm
       run: |
+        export SHELL=/bin/sh
         wget -qO- https://get.pnpm.io/install.sh | env PNPM_VERSION=10.0.0 sh -
 
     - name: Download source code
