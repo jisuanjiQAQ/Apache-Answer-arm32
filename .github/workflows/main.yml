@@ -44,7 +44,7 @@ jobs:
         wget https://github.com/apache/answer/archive/refs/tags/v1.4.1.zip
         unzip v1.4.1.zip
 
-    - name: Set up cross-compilation environment
+    - name: Build
       run: |
         export CC=arm-linux-gnueabihf-gcc
         export CXX=arm-linux-gnueabihf-g++
@@ -56,9 +56,6 @@ jobs:
         export STRIP=arm-linux-gnueabihf-strip
         export GOOS=linux GOARCH=arm
         export CGO_ENABLED=1
-
-    - name: Build
-      run: |
         cd answer-1.4.1
         npm install -g update-browserslist-db@latest
         make generate
@@ -68,7 +65,7 @@ jobs:
 
     - name: Compress build artifacts
       run: |
-       tar -czf Answer-arm32.tar.gz answer-1.4.1
+       tar -czf Answer-arm32.tar.gz answer
 
     - name: Create GitHub Release
       id: create_release
