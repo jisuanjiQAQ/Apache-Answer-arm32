@@ -38,7 +38,6 @@ jobs:
     - name: Install pnpm
       run: |
         npm i -g pnpm
-        npx update-browserslist-db@latest
 
     - name: Download source code
       run: |
@@ -61,6 +60,7 @@ jobs:
     - name: Build
       run: |
         cd answer-1.4.1
+        npm install -g update-browserslist-db@latest
         make generate
         make ui
         make build
