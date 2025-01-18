@@ -67,7 +67,8 @@ jobs:
 
     - name: Compress build artifacts
       run: |
-        tar -czf Answer-arm32.tar.gz .
+        cd ..
+        tar -czf Answer-arm32.tar.gz answer-1.4.1
 
     - name: Create GitHub Release
       id: create_release
