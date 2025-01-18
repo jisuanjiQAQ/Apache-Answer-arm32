@@ -18,6 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install -y cmake libssl-dev libncurses5-dev bison libaio-dev libboost-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev
+        sudo apt-get install -y golang nodejs pnpm mockgen wire
 
     - name: Download source code
       run: |
@@ -33,6 +34,8 @@ jobs:
         export NM=arm-linux-gnueabihf-nm
         export RANLIB=arm-linux-gnueabihf-ranlib
         export STRIP=arm-linux-gnueabihf-strip
+        exprot GOOS=linux GOARCH=arm
+        exprot CGO_ENABLED=1
 
     - name: Build
       run: |
