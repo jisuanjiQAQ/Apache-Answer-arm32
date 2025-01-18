@@ -23,7 +23,6 @@ jobs:
       run: |
         wget https://github.com/apache/answer/archive/refs/tags/v1.4.1.zip
         unzip v1.4.1.zip
-        ls
     - name: Set up cross-compilation environment
       run: |
         export CC=arm-linux-gnueabihf-gcc
@@ -37,6 +36,7 @@ jobs:
 
     - name: Build
       run: |
+        answer-1.4.1
         make generate
         make ui
         make build
