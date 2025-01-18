@@ -54,8 +54,8 @@ jobs:
         export NM=arm-linux-gnueabihf-nm
         export RANLIB=arm-linux-gnueabihf-ranlib
         export STRIP=arm-linux-gnueabihf-strip
-        exprot GOOS=linux GOARCH=arm
-        exprot CGO_ENABLED=1
+        export GOOS=linux GOARCH=arm
+        export CGO_ENABLED=1
 
     - name: Build
       run: |
