@@ -55,6 +55,7 @@ jobs:
         export RANLIB=arm-linux-gnueabihf-ranlib
         export STRIP=arm-linux-gnueabihf-strip
         export GOARCH=arm
+        export GOARM=7
         export CGO_ENABLED=1
         cd answer-1.4.1
         npm install -g update-browserslist-db@latest
