@@ -38,6 +38,7 @@ jobs:
     - name: Install pnpm
       run: |
         npm i -g pnpm
+        npx update-browserslist-db@latest
 
     - name: Download source code
       run: |
