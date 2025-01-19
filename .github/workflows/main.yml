@@ -14,7 +14,7 @@ jobs:
     - name: Install cross-compilation tools
       run: |
         sudo apt-get update
-        sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf make wget unzip
+        sudo apt-get install -y make wget unzip
 
     - name: Install dependencies
       run: |
@@ -25,11 +25,6 @@ jobs:
       with:
         go-version: '1.23'
 
-    - name: Install wire
-      run: |
-        go install github.com/google/wire/cmd/wire@latest
-        go install go.uber.org/mock/mockgen@latest
-
     - name: Install Node.js
       uses: actions/setup-node@v2  # 设置Node.js环境
       with:
@@ -39,18 +34,12 @@ jobs:
       run: |
         wget https://github.com/apache/answer/archive/refs/tags/v1.4.1.zip
         unzip v1.4.1.zip
+        corepack enable
+        corepack use pnpm@latest-10
 
     - name: Build
       run: |
         cd answer-1.4.1
-        export CC=arm-linux-gnueabihf-gcc
-        export CXX=arm-linux-gnueabihf-g++
-        export AR=arm-linux-gnueabihf-ar
-        export AS=arm-linux-gnueabihf-as
-        export LD=arm-linux-gnueabihf-ld
-        export NM=arm-linux-gnueabihf-nm
-        export RANLIB=arm-linux-gnueabihf-ranlib
-        export STRIP=arm-linux-gnueabihf-strip
         export GOARCH=arm
         export GOARM=7
         go install github.com/google/wire/cmd/wire@latest
