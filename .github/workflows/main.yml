@@ -38,6 +38,7 @@ jobs:
     - name: Install pnpm
       run: |
         npm i -g pnpm
+        npm install buffer
 
     - name: Download source code
       run: |
@@ -61,7 +62,6 @@ jobs:
         export GOARM=7
         make ui
         make build
-        pwd
 
     - name: Compress build artifacts
       run: |
