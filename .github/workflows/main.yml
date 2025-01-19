@@ -35,11 +35,6 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install pnpm
-      run: |
-        npm i -g pnpm
-        npm install buffer
-
     - name: Download source code
       run: |
         wget https://github.com/apache/answer/archive/refs/tags/v1.4.1.zip
@@ -48,8 +43,6 @@ jobs:
     - name: Build
       run: |
         cd answer-1.4.1
-        npm install -g update-browserslist-db@latest
-        make generate
         export CC=arm-linux-gnueabihf-gcc
         export CXX=arm-linux-gnueabihf-g++
         export AR=arm-linux-gnueabihf-ar
@@ -60,6 +53,10 @@ jobs:
         export STRIP=arm-linux-gnueabihf-strip
         export GOARCH=arm
         export GOARM=7
+        go install github.com/google/wire/cmd/wire@latest
+        go install github.com/swaggo/swag/cmd/swag@latest
+        npm install -g update-browserslist-db@latest
+        make generate
         make ui
         make build
 
