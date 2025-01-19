@@ -56,7 +56,7 @@ jobs:
         go install github.com/google/wire/cmd/wire@latest
         go install github.com/swaggo/swag/cmd/swag@latest
         npm install -g update-browserslist-db@latest
-        make generate
+        go mod download
         make ui
         make build
 
