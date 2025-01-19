@@ -18,8 +18,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo apt-get install -y cmake libssl-dev libncurses5-dev bison libaio-dev libboost-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev
-        sudo apt-get install -y mockgen 
+        sudo apt-get install -y cmake libssl-dev libncurses5-dev bison libaio-dev libboost-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev 
 
     - name: Install Go
       uses: actions/setup-go@v2  # 设置Go环境
@@ -29,6 +28,7 @@ jobs:
     - name: Install wire
       run: |
         go install github.com/google/wire/cmd/wire@latest
+        go install go.uber.org/mock/mockgen@latest
 
     - name: Install Node.js
       uses: actions/setup-node@v2  # 设置Node.js环境
