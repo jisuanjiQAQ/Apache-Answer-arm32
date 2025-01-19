@@ -42,7 +42,6 @@ jobs:
         go install github.com/google/wire/cmd/wire@latest
         npm install -g update-browserslist-db@latest
         go install github.com/golang/mock/mockgen@latest
-        npx update-browserslist-db@latest
         pnpm install buffer
         pwd
         make generate
