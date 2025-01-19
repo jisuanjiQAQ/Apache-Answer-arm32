@@ -45,6 +45,7 @@ jobs:
         go install github.com/golang/mock/mockgen@latest
         go mod download
         pnpm add node-polyfill-webpack-plugin@2.0.1
+        make generate
         make ui
         export GOARCH=arm
         export GOARM=7
