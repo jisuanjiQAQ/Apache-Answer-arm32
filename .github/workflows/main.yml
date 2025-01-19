@@ -43,8 +43,6 @@ jobs:
         npm install -g update-browserslist-db@latest
         go install github.com/golang/mock/mockgen@latest
         npx update-browserslist-db@latest
-        go mod download
-        pnpm add node-polyfill-webpack-plugin@2.0.1
         pnpm install buffer
         pwd
         make generate
