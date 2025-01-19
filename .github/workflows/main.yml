@@ -34,11 +34,11 @@ jobs:
       run: |
         wget https://github.com/apache/answer/archive/refs/tags/v1.4.1.zip
         unzip v1.4.1.zip
-        npm install -g pnpm
 
     - name: Build
       run: |
         cd answer-1.4.1
+        npm install -g pnpm
         go install github.com/google/wire/cmd/wire@latest
         go install github.com/swaggo/swag/cmd/swag@latest
         npm install -g update-browserslist-db@latest
